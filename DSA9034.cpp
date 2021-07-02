@@ -1,14 +1,14 @@
 #include<iostream>
 #include<cstring>
-#include<vector>
 #include<queue>
+#include<vector>
+
 using namespace std;
 
-int n, m;
-int List[505][505];
-bool chuaxet[505][505];
-int x[] = { 0,0,1,1,1,-1,-1,-1 };
-int y[] = { 1,-1,0,-1,1,0,1,-1 };
+int List[105][105];
+bool chuaxet[105][105];
+int x[] = { -1,-1,-1,0,0,1,1,1 };
+int y[] = { -1,0,1,-1,1,-1,0,1 };
 
 void BFS(int u, int v) {
 	queue< pair<int, int> > q;
@@ -27,30 +27,27 @@ void BFS(int u, int v) {
 	}
 }
 
-void TPLT() {
-	int res = 0;
+int main() {
+	int n, m;
+	cin >> n >> m;
+	memset(List, 0, sizeof(List));
+	memset(chuaxet, false, sizeof(chuaxet));
 	for (int i = 1; i <= n; i++) {
 		for (int j = 1; j <= m; j++) {
-			if (chuaxet[i][j] && List[i][j]) {
-				res++;
+			char c;
+			cin >> c;
+			if (c == 'W')List[i][j] = 1;
+			chuaxet[i][j] = true;
+		}
+	}
+	int count = 0;
+	for (int i = 1; i <= n; i++) {
+		for (int j = 1; j <= m; j++) {
+			if (List[i][j] && chuaxet[i][j]) {
+				count++;
 				BFS(i, j);
 			}
 		}
 	}
-	cout << res << endl;
-}
-
-int main() {
-	int t;
-	cin >> t;
-	while (t--) {
-		cin >> n >> m;
-		for (int i = 1; i <= n; i++) {
-			for (int j = 1; j <= m; j++) {
-				cin >> List[i][j];
-				chuaxet[i][j] = true;
-			}
-		}
-		TPLT();
-	}
+	cout << count << endl;
 }
