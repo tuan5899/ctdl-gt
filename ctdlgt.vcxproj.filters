@@ -306,5 +306,17 @@
     <ClCompile Include="DSA7004.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="DSA2032.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DSA2025.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DSA2022.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DSA2041.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
